@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('userId')
                     ->constrained('users')
                     ->on('users')
@@ -22,6 +21,13 @@ return new class extends Migration
             $table->foreignId('articuloId')
                     ->constrained('articulos')
                     ->on('articulos')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
+            $table->timestamp('prestado');
+            $table->timestamp('devuelto')->nullable();
+            $table->foreignId('devuelveId')->nullable()
+                    ->constrained('users')
+                    ->on('users')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
         });

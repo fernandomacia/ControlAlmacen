@@ -14,8 +14,7 @@ class PrestamosTableSeeder extends Seeder
     public function run(): void
     {
         $prestamo1 = new Prestamo([
-            'updated_at' => now(),
-            'created_at' => now(),
+            'prestado' => now(),
             'userId' => '4',
             'articuloId' => '1'
         ]);
@@ -23,8 +22,7 @@ class PrestamosTableSeeder extends Seeder
         $prestamo1->saveOrFail();
 
         $prestamo2 = new Prestamo([
-            'updated_at' => now(),
-            'created_at' => now(),
+            'prestado' => now(),
             'userId' => '5',
             'articuloId' => '2'
         ]);
@@ -32,10 +30,11 @@ class PrestamosTableSeeder extends Seeder
         $prestamo2->saveOrFail();
 
         $prestamo3 = new Prestamo([
-            'updated_at' => now(),
-            'created_at' => now(),
-            'userId' => '6',
-            'articuloId' => '3'
+            'prestado' => now(),
+            'devuelto' => now(),
+            'userId' => '2',
+            'articuloId' => '3',
+            'devuelveId' => '3'
         ]);
 
         $prestamo3->saveOrFail();

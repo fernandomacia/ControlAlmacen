@@ -9,10 +9,14 @@ class Prestamo extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'id',
-        'timestamps',
         'userId',
-        'articuloId'
+        'articuloId',
+        'prestado',
+        'devuelto',
+        'devuelveId'
     ];
 }

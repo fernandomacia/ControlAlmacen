@@ -21,7 +21,6 @@ return new class extends Migration
                     ->on('departamentos')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
-            // FALTA AÑADIR EL QR
             $table->timestamps();
             $table->boolean('prestado')->default(false);
             $table->boolean('enabled')->default(true);
