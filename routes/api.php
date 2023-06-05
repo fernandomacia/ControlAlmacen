@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/user', [AuthController::class, 'user']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/prestamo', [UserController::class, 'prestamo']);
+    Route::get('/misPrestamos', [UserController::class, 'misPrestamos']);
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'role:Administrador,Encargado']], function () {

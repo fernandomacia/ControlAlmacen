@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+
 Use App\Models\Articulo;
 use App\Models\Prestamo;
+use App\Models\User;
 use Exception;
 
 class UserController extends Controller
@@ -45,7 +48,30 @@ class UserController extends Controller
                 'message' => $e,
                 'datos' => ''
             ];
-        } 
+        }
+        return $result;
+    }
+
+    public function misPrestamos(Request $request)
+    {
+        try {
+            $user = $request->user();
+            $prestamos = DB::table('prestamos')
+                        ->where('userId', $user->id)
+                        ->get();
+
+            $result = [
+                'success' => true,
+                'message' => '',
+                'datos' => $prestamos
+            ];
+        } catch (Exception $e) {
+            $result = [
+                'success' => false,
+                'message' => $e,
+                'datos' => ''
+            ];
+        }
         return $result;
     }
 }

@@ -23,7 +23,7 @@ class PrestamosTableSeeder extends Seeder
 
         $prestamo2 = new Prestamo([
             'prestado' => now(),
-            'userId' => '5',
+            'userId' => '1',
             'articuloId' => '2'
         ]);
 
@@ -38,5 +38,6 @@ class PrestamosTableSeeder extends Seeder
         ]);
 
         $prestamo3->saveOrFail();
+
     }
 }
