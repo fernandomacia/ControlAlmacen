@@ -39,7 +39,7 @@ class UserController extends Controller
                 $result = [
                     'success'=>true,
                     'message' => '',
-                    'data' => $prestamo
+                    'data' => ''
                 ];
             }
         } catch (Exception $e) {

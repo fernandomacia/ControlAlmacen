@@ -33,10 +33,14 @@ class AdminController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            'success' => 'OK',
+            'success' => "OK",
             'message' => "",
-            'token' => $token,
-        ]);
+            'data' => [
+                'token' => $token,
+                'nombre' => $user->name,
+                'rol' => $user->rol,
+            ]
+    ]);
     }
 
     public function getUsers(Request $request)
@@ -52,6 +56,11 @@ class AdminController extends Controller
     public function getArticulos(Request $request)
     {
         return Articulo::all();
+    }
+
+    public function getPrestamos(Request $request)
+    {
+        return Prestamo::all();
     }
 
     public function devolucion(Request $request)
@@ -83,7 +92,7 @@ class AdminController extends Controller
                     $result = [
                         'success'=>true,
                         'message' => '',
-                        'data' => $prestamo
+                        'data' => ''
                     ];
                 }
             } else {

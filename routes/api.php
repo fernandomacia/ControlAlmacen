@@ -20,16 +20,17 @@ use App\Http\Controllers\UserController;
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/user', [AuthController::class, 'user']);
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/prestamo', [UserController::class, 'prestamo']);
+    Route::get('/user', [AuthController::class, 'user']);
+    Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/misPrestamos', [UserController::class, 'misPrestamos']);
+    Route::post('/prestamo', [UserController::class, 'prestamo']);
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'role:Administrador,Encargado']], function () {
-    Route::post('/getUsers', [AdminController::class, 'getUsers']);
-    Route::post('/getDepartamentos', [AdminController::class, 'getDepartamentos']);
-    Route::post('/getArticulos', [AdminController::class, 'getArticulos']);
+    Route::get('/getUsers', [AdminController::class, 'getUsers']);
+    Route::get('/getDepartamentos', [AdminController::class, 'getDepartamentos']);
+    Route::get('/getArticulos', [AdminController::class, 'getArticulos']);
+    Route::get('/getPrestamos', [AdminController::class, 'getArticulos']);
     Route::post('/register', [AdminController::class, 'register']);
     Route::post('/devolucion', [AdminController::class, 'devolucion']);
 });
