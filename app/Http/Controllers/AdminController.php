@@ -63,13 +63,13 @@ class AdminController extends Controller
                     $result = [
                         'success' => false,
                         'message' => 'Este artículo no existe',
-                        'datos' => ''
+                        'data' => ''
                     ];
                 } elseif (!$articulo->prestado){
                     $result = [
                         'success' => false,
                         'message' => 'Este artículo no está en préstamo',
-                        'datos' => ''
+                        'data' => ''
                     ];
                 } else {
                     $prestamos = Prestamo::where('articuloId', $articulo->id)->whereNull('devuelto')->get();
@@ -83,24 +83,24 @@ class AdminController extends Controller
                     $result = [
                         'success'=>true,
                         'message' => '',
-                        'datos' => $prestamo
+                        'data' => $prestamo
                     ];
                 }
             } else {
                 $result = [
                     'success' => false,
                     'message' => 'No se ha enviado directiva de devolución',
-                    'datos' => ''
+                    'data' => ''
                 ];
             }
-            
+
         } catch (Exception $e) {
             $result = [
                 'success' => false,
                 'message' => $e,
-                'datos' => ''
+                'data' => ''
             ];
-        } 
+        }
         return $result;
     }
 }

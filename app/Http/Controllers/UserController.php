@@ -20,13 +20,13 @@ class UserController extends Controller
                 $result = [
                     'success' => false,
                     'message' => 'Este artículo no existe',
-                    'datos' => ''
+                    'data' => ''
                 ];
             } elseif ($articulo->prestado){
                 $result = [
                     'success' => false,
                     'message' => 'Este artículo ya está en préstamo',
-                    'datos' => ''
+                    'data' => ''
                 ];
             } else {
                 $prestamo = new Prestamo();
@@ -39,14 +39,14 @@ class UserController extends Controller
                 $result = [
                     'success'=>true,
                     'message' => '',
-                    'datos' => $prestamo
+                    'data' => $prestamo
                 ];
             }
         } catch (Exception $e) {
             $result = [
                 'success' => false,
                 'message' => $e,
-                'datos' => ''
+                'data' => ''
             ];
         }
         return $result;
@@ -63,13 +63,13 @@ class UserController extends Controller
             $result = [
                 'success' => true,
                 'message' => '',
-                'datos' => $prestamos
+                'data' => $prestamos
             ];
         } catch (Exception $e) {
             $result = [
                 'success' => false,
                 'message' => $e,
-                'datos' => ''
+                'data' => ''
             ];
         }
         return $result;
