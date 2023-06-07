@@ -57,8 +57,11 @@ class UserController extends Controller
         try {
             $user = $request->user();
             $prestamos = DB::table('prestamos')
-                        ->where('userId', $user->id)
-                        ->get();
+            ->join('articulos', 'prestamos.articuloId', '=', 'articulos.id')
+            ->select('prestamos.id', 'articulos.nombre', 'prestamos.prestado')
+            ->where('prestamos.userId', $user->id)
+            ->whereNull('prestamos.devuelto')
+            ->get();
 
             $result = [
                 'success' => true,

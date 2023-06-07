@@ -54,7 +54,7 @@ class ArticulosTableSeeder extends Seeder
             'departamentoId' => '1',
             'updated_at' => '2023-03-21 13:10:57',
             'created_at' => '2023-03-21 13:10:57',
-            'prestado' => true,
+            'prestado' => false,
             'enabled' => true,
         ]);
 
