@@ -44,13 +44,13 @@ class PrestamosTableSeeder extends Seeder
             'devuelto' => now(),
             'userId' => '4',
             'articuloId' => '4',
+            'devuelveId' => '3'
         ]);
 
         $prestamo4->saveOrFail();
 
         $prestamo5 = new Prestamo([
             'prestado' => now(),
-            'devuelto' => now(),
             'userId' => '4',
             'articuloId' => '5',
         ]);

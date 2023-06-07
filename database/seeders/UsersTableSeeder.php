@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'enabled' => true,
         ]);
-        
+
         $userEncargado1->saveOrFail();
 
         $userEncargado2 = new User([
@@ -49,20 +49,20 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'enabled' => true,
         ]);
-        
+
         $userEncargado2->saveOrFail();
 
         $userUsuario = new User([
             'dni' => '39470321K',
             'name' => 'Mateo Villanueva Segura',
             'rol' => 'usuario',
-            'email' => 'batista.juanjose@example.org',
+            'email' => 'usuario@example.net',
             'password' => Hash::make('password'),
             'updated_at' => now(),
             'created_at' => now(),
             'enabled' => true,
         ]);
-        
+
         $userUsuario->saveOrFail();
 
         \App\Models\User::factory()->count(20)->create();
