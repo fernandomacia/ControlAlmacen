@@ -47,5 +47,29 @@ class ArticulosTableSeeder extends Seeder
         ]);
 
         $articulo3->saveOrFail();
+
+        $articulo4 = new Articulo([
+            'name' => 'ASUS VivoBook Pro 17',
+            'description' => 'Ordenador portatil Full HD, AMD Ryzen™ 5 5600H, 16GB RAM, 512GB SSD, GeForce RTX™ 3050',
+            'departamentoId' => '1',
+            'updated_at' => '2023-03-21 13:10:57',
+            'created_at' => '2023-03-21 13:10:57',
+            'prestado' => true,
+            'enabled' => true,
+        ]);
+
+        $articulo4->saveOrFail();
+
+        $articulo5 = new Articulo([
+            'name' => 'ASUS VivoBook Pro 21',
+            'description' => 'Ordenador portatil Full HD, AMD Ryzen™ 5 5600H, 16GB RAM, 512GB SSD, GeForce RTX™ 3050',
+            'departamentoId' => '1',
+            'updated_at' => '2023-03-21 13:10:57',
+            'created_at' => '2023-03-21 13:10:57',
+            'prestado' => true,
+            'enabled' => true,
+        ]);
+
+        $articulo5->saveOrFail();
     }
 }
