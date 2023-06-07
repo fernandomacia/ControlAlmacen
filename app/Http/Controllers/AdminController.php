@@ -40,27 +40,7 @@ class AdminController extends Controller
                 'nombre' => $user->name,
                 'rol' => $user->rol,
             ]
-    ]);
-    }
-
-    public function getUsers(Request $request)
-    {
-        return User::all();
-    }
-
-    public function getDepartamentos(Request $request)
-    {
-        return Departamento::all();
-    }
-
-    public function getArticulos(Request $request)
-    {
-        return Articulo::all();
-    }
-
-    public function getPrestamos(Request $request)
-    {
-        return Prestamo::all();
+        ]);
     }
 
     public function devolucion(Request $request)
@@ -111,5 +91,31 @@ class AdminController extends Controller
             ];
         }
         return $result;
+    }
+
+    public function getPrestamos(Request $request)
+    {
+        $prestamos = Prestamo::whereNull('devuelto')->get();
+        return $prestamos;
+    }
+
+    public function getUsers(Request $request)
+    {
+        return User::all();
+    }
+
+    public function getDepartamentos(Request $request)
+    {
+        return Departamento::all();
+    }
+
+    public function getArticulos(Request $request)
+    {
+        return Articulo::all();
+    }
+
+    public function getAllPrestamos(Request $request)
+    {
+        return Prestamo::all();
     }
 }
