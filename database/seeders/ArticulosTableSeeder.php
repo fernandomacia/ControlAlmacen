@@ -15,7 +15,7 @@ class ArticulosTableSeeder extends Seeder
         $articulo1 = new Articulo([
             'name' => 'Switch TP-LINK TL-SG105',
             'description' => 'Switch ethernet para sobremesa. 5 puertos ethernet 10/100/1000 Mbps',
-            'departamentoId' => '2',
+            'departamentoId' => '1',
             'updated_at' => '2023-03-21 13:10:57',
             'created_at' => '2023-03-21 13:10:57',
             'prestado' => true,
@@ -27,7 +27,7 @@ class ArticulosTableSeeder extends Seeder
         $articulo2 = new Articulo([
             'name' => 'Switch TP-LINK TL-SG1024DE',
             'description' => 'Switch 24 puertos ethernet 10/100/1000 Mbps',
-            'departamentoId' => '2',
+            'departamentoId' => '1',
             'updated_at' => '2023-03-21 13:10:57',
             'created_at' => '2023-03-21 13:10:57',
             'prestado' => true,
@@ -66,7 +66,7 @@ class ArticulosTableSeeder extends Seeder
             'departamentoId' => '1',
             'updated_at' => '2023-03-21 13:10:57',
             'created_at' => '2023-03-21 13:10:57',
-            'prestado' => true,
+            'prestado' => false,
             'enabled' => true,
         ]);
 

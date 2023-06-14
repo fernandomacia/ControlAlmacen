@@ -22,12 +22,12 @@ class UserController extends Controller
                     'message' => 'Este artículo no existe',
                     'data' => ''
                 ];
-            // } elseif ($articulo->prestado){
-            //     $result = [
-            //         'success' => false,
-            //         'message' => 'Este artículo ya está en préstamo',
-            //         'data' => ''
-            //     ];
+            } elseif ($articulo->prestado){
+                $result = [
+                    'success' => false,
+                    'message' => 'Este artículo ya está en préstamo',
+                    'data' => ''
+                ];
             } else {
                 $prestamo = new Prestamo();
                 $prestamo->userId = $request->user()->id;
