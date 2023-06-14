@@ -48,13 +48,5 @@ class PrestamosTableSeeder extends Seeder
         ]);
 
         $prestamo4->saveOrFail();
-
-        $prestamo5 = new Prestamo([
-            'prestado' => now(),
-            'userId' => '4',
-            'articuloId' => '5',
-        ]);
-
-        $prestamo5->saveOrFail();
     }
 }
