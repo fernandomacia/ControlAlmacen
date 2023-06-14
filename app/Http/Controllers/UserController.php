@@ -9,6 +9,7 @@ Use App\Models\Articulo;
 use App\Models\Prestamo;
 use App\Models\User;
 use Exception;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -32,7 +33,7 @@ class UserController extends Controller
                 $prestamo = new Prestamo();
                 $prestamo->userId = $request->user()->id;
                 $prestamo->articuloId = $request->articuloId;
-                $prestamo->prestado = now();
+                $prestamo->prestado = Carbon::now()->copy();
                 $prestamo->save();
                 $articulo->prestado = true;
                 $articulo->save();

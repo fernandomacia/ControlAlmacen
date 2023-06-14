@@ -9,6 +9,7 @@ use App\Models\Departamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 use Exception;
 
@@ -63,7 +64,7 @@ class AdminController extends Controller
                 } else {
                     $prestamos = Prestamo::where('articuloId', $articulo->id)->whereNull('devuelto')->get();
                     foreach ($prestamos as $prestamo) {
-                        $prestamo->devuelto = now();
+                        $prestamo->devuelto = Carbon::now()->copy();
                         $prestamo->devuelveId = $request->user()->id;
                         $prestamo->save();
                     }
