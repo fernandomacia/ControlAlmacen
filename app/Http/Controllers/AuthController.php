@@ -31,12 +31,13 @@ class AuthController extends Controller
                         'token' => $token,
                         'nombre' => $user->name,
                         'rol' => $user->rol,
+                        'lang' => $user->lang
                     ]
             ]);
         } else {
             return response()->json([
                 'success' => 'ERROR',
-                'message' => 'Invalid user'
+                'message' => 'INVALID_USER'
                         ], 403);
         }
 
@@ -47,7 +48,7 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return [
-            'message' => 'Tokens Revoked'
+            'message' => 'Token Revoked'
         ];
     }
 

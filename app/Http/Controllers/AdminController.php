@@ -29,6 +29,8 @@ class AdminController extends Controller
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
+            'rol' => 'usuario',
+            'enabled' => '1'
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
