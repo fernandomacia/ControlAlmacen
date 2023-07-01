@@ -20,16 +20,20 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
         'dni' => 'required|string|max:9',
-        'name' => 'required|string|max:255',
+        'firstName' => 'required|string|max:255',
+        'surnames' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
+        'lang' => 'string',
         'password' => 'required|string|min:8',
         ]);
 
         $user = User::create([
             'dni' => $validatedData['dni'],
-            'name' => $validatedData['name'],
+            'firstName' => $validatedData['firstName'],
+            'surnames' => $validatedData['surnames'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
+            'lang' => $validatedData['lang'],
             'rol' => 'usuario',
             'enabled' => '1'
         ]);
