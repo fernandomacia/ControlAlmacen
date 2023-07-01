@@ -19,11 +19,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $faker = \Faker\Factory::create('es_ES');
-        $nombre = $faker->firstName() . " " . $faker->lastName() . " " . $faker->lastName();
+        $surnames = $faker->lastName() . " " . $faker->lastName();
 
         return [
             'dni' => $faker->dni(),
-            'name' => $nombre,
+            'firstName' => $faker->firstName(),
+            'surnames' => $surnames,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => null,
             'password' => Hash::make('password'),

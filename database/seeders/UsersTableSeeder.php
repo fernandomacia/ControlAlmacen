@@ -15,7 +15,8 @@ class UsersTableSeeder extends Seeder
     {
         $userAdministrador = new User([
             'dni' => '9943935D',
-            'name' => 'Susana Puente Valero',
+            'firstName' => 'Susana',
+            'surnames' => 'Puente Valero',
             'rol' => 'administrador',
             'email' => 'a',
             'lang' => 'ca',
@@ -29,7 +30,8 @@ class UsersTableSeeder extends Seeder
 
         $userEncargado1 = new User([
             'dni' => '01642486X',
-            'name' => 'Leo Ordóñez Alcaráz',
+            'firstName' => 'Leo',
+            'surnames' => 'Ordóñez Alcaráz',
             'rol' => 'administrador',
             'email' => 'admin@example.net',
             'lang' => 'en',
@@ -43,7 +45,8 @@ class UsersTableSeeder extends Seeder
 
         $userEncargado2 = new User([
             'dni' => '00203758R',
-            'name' => 'Mara Arroyo Martos',
+            'firstName' => 'Mara',
+            'surnames' => 'Arroyo Martos',
             'rol' => 'encargado',
             'email' => 'encargado@example.net',
             'password' => Hash::make('password'),
@@ -56,7 +59,8 @@ class UsersTableSeeder extends Seeder
 
         $userUsuario = new User([
             'dni' => '39470321K',
-            'name' => 'Mateo Villanueva Segura',
+            'firstName' => 'Mateo',
+            'surnames' => 'Villanueva Segura',
             'rol' => 'usuario',
             'email' => 'usuario@example.net',
             'password' => Hash::make('password'),
