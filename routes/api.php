@@ -18,6 +18,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/register', [UserController::class, 'register']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/user', [AuthController::class, 'user']);
@@ -32,6 +33,5 @@ Route::group(['middleware' => ['auth:sanctum', 'role:Administrador,Encargado']],
     Route::post('/getArticulos', [AdminController::class, 'getArticulos']);
     Route::post('/getAllPrestamos', [AdminController::class, 'getAllPrestamos']);
     Route::post('/getPrestamos', [AdminController::class, 'getPrestamos']);
-    Route::post('/register', [AdminController::class, 'register']);
     Route::post('/devolucion', [AdminController::class, 'devolucion']);
 });

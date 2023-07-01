@@ -7,46 +7,13 @@ use App\Models\Articulo;
 use App\Models\Prestamo;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 use Exception;
 
 class AdminController extends Controller
 {
-    public function register(Request $request)
-    {
-        $validatedData = $request->validate([
-        'dni' => 'required|string|max:9',
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8',
-        ]);
-
-        $user = User::create([
-            'dni' => $validatedData['dni'],
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => Hash::make($validatedData['password']),
-            'rol' => 'usuario',
-            'enabled' => '1'
-        ]);
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return response()->json([
-            'success' => "OK",
-            'message' => "",
-            'data' => [
-                'token' => $token,
-                'nombre' => $user->name,
-                'rol' => $user->rol,
-            ]
-        ]);
-    }
-
-    public function devolucion(Request $request)
+        public function devolucion(Request $request)
     {
         try {
             if ($request->devolucion) {

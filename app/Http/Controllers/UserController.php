@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 Use App\Models\Articulo;
 use App\Models\Prestamo;
@@ -11,8 +12,41 @@ use App\Models\User;
 use Exception;
 use Carbon\Carbon;
 
+
 class UserController extends Controller
 {
+
+    public function register(Request $request)
+    {
+        $validatedData = $request->validate([
+        'dni' => 'required|string|max:9',
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8',
+        ]);
+
+        $user = User::create([
+            'dni' => $validatedData['dni'],
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+            'rol' => 'usuario',
+            'enabled' => '1'
+        ]);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'success' => "OK",
+            'message' => "",
+            'data' => [
+                'token' => $token,
+                'nombre' => $user->name,
+                'rol' => $user->rol,
+            ]
+        ]);
+    }
+
     public function prestamo(Request $request)
     {
         try {
